@@ -1,0 +1,892 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:w="urn:schemas-microsoft-com:office:word"
+    xmlns="http://www.w3.org/TR/REC-html40">
+    <head><meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <style type="text/css">
+        table  
+        {  
+            border-collapse: collapse;
+            border: none;  
+            width: 100%;  
+        }  
+        td,tr  
+        {  
+            border: solid #CCC 1px;
+            padding:3px;
+            font-size:9pt;
+        } 
+        .codestyle{
+            word-break: break-all;
+            mso-highlight:rgb(252, 252, 252);
+            padding-left: 5px; background-color: rgb(252, 252, 252); border: 1px solid rgb(225, 225, 232);
+        }
+        img {
+            width:100;
+        }
+    </style>
+    <meta name=ProgId content=Word.Document>
+    <meta name=Generator content="Microsoft Word 11">
+    <meta name=Originator content="Microsoft Word 11">
+    <xml><w:WordDocument><w:View>Print</w:View></xml></head>
+    <body><h1>1、用户</h1><div style="margin-left:0px;"><h2>1.1、查询所有用户</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/list</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>[
+    {
+        "id": 1,
+        "no": "sa",
+        "name": "超级管理员",
+        "password": "123",
+        "age": 18,
+        "sex": 1,
+        "phone": "111",
+        "roleId": 0,
+        "isvalid": "Y"
+    },
+    {
+        "id": 2,
+        "no": "admin",
+        "name": "小明",
+        "password": "123",
+        "age": 18,
+        "sex": 1,
+        "phone": null,
+        "roleId": null,
+        "isvalid": "Y"
+    }
+]
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">int</td>
+<td>id</td>
+</tr>
+<tr>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">string</td>
+<td>账号</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td style="text-align: left;">password</td>
+<td style="text-align: left;">string</td>
+<td>账号密码</td>
+</tr>
+<tr>
+<td style="text-align: left;">age</td>
+<td style="text-align: left;">int</td>
+<td>用户的年龄</td>
+</tr>
+<tr>
+<td style="text-align: left;">sex</td>
+<td style="text-align: left;">int</td>
+<td>用户的性别，1为女，0为男</td>
+</tr>
+<tr>
+<td style="text-align: left;">phone</td>
+<td style="text-align: left;">string</td>
+<td>用户的手机号</td>
+</tr>
+<tr>
+<td style="text-align: left;">roleId</td>
+<td style="text-align: left;">int</td>
+<td>用户的权限，0超级管理员，1管理员，2普通账号</td>
+</tr>
+<tr>
+<td style="text-align: left;">isvalid</td>
+<td style="text-align: left;">string</td>
+<td>账号是否有效</td>
+</tr>
+</tbody>
+</table></div><h2>1.2、根据账号查询</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/findByNo</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>请求Query参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 1,
+    "data": [
+        {
+            "id": 1,
+            "no": "sa",
+            "name": "超级管理员",
+            "password": "123",
+            "age": 18,
+            "sex": 1,
+            "phone": "111",
+            "roleId": 0,
+            "isvalid": "Y"
+        }
+    ]
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">int</td>
+<td>id</td>
+</tr>
+<tr>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">string</td>
+<td>账号</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td style="text-align: left;">password</td>
+<td style="text-align: left;">string</td>
+<td>账号密码</td>
+</tr>
+<tr>
+<td style="text-align: left;">age</td>
+<td style="text-align: left;">int</td>
+<td>用户的年龄</td>
+</tr>
+<tr>
+<td style="text-align: left;">sex</td>
+<td style="text-align: left;">int</td>
+<td>用户的性别，1为女，0为男</td>
+</tr>
+<tr>
+<td style="text-align: left;">phone</td>
+<td style="text-align: left;">string</td>
+<td>用户的手机号</td>
+</tr>
+<tr>
+<td style="text-align: left;">roleId</td>
+<td style="text-align: left;">int</td>
+<td>用户的权限，0超级管理员，1管理员，2普通账号</td>
+</tr>
+<tr>
+<td style="text-align: left;">isvalid</td>
+<td style="text-align: left;">string</td>
+<td>账号是否有效</td>
+</tr>
+</tbody>
+</table></div><h2>1.3、新增用户</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/save</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "no": "test",
+    "name": "张三",
+    "password": "123123",
+    "age": 29,
+    "sex": 0,
+    "roleId": 0,
+    "isValid": "Y"
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">password</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">age</td>
+<td style="text-align: left;">否</td>
+<td>int</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">sex</td>
+<td style="text-align: left;">否</td>
+<td>int</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">roleId</td>
+<td style="text-align: left;">否</td>
+<td>int</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">isValid</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": null
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">int</td>
+<td>200表示成功，400表示失败</td>
+</tr>
+<tr>
+<td style="text-align: left;">msg</td>
+<td style="text-align: left;">string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">total</td>
+<td style="text-align: left;">long</td>
+<td>记录返回信息条数</td>
+</tr>
+<tr>
+<td style="text-align: left;">data</td>
+<td style="text-align: left;">object</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div><h2>1.4、根据id修改数据</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/update</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "id": 12,
+    "no": "test",
+    "name": "李四",
+    "password": "11111",
+    "age": 29,
+    "sex": 0,
+    "roleId": 0,
+    "isValid": "Y"
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>修改对应id的相关数据</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": null
+}
+</code></pre></table></div><h2>1.5、根据id修改或新增数据</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>根据id修改数据，若id不存在则新增数据（id自动增长）</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/saveOrUpdate</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "no": "test",
+    "name": "王五",
+    "password": "11111",
+    "age": 29,
+    "sex": 0,
+    "roleId": 0,
+    "isValid": "Y"
+}
+</code></pre></table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": null
+}
+</code></pre></table></div><h2>1.6、根据id删除数据</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/del</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>请求Query参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": null
+}
+</code></pre></table></div><h2>1.7、登录</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/login</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "no": "sa",
+    "password": "123"
+}
+</code></pre></table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": {
+        "menu": [
+            {
+                "id": 1,
+                "menucode": "001",
+                "menuname": "管理员管理",
+                "menulevel": "1",
+                "menuparentcode": null,
+                "menuclick": "Admin",
+                "menuright": "0",
+                "menucomponent": "admin\/AdminManage.vue",
+                "menuicon": "el-icon-s-custom"
+            },
+            {
+                "id": 2,
+                "menucode": "002",
+                "menuname": "用户管理",
+                "menulevel": "1",
+                "menuparentcode": null,
+                "menuclick": "User",
+                "menuright": "0,1",
+                "menucomponent": "user\/UserManage.vue",
+                "menuicon": "el-icon-user-solid"
+            }
+        ],
+        "user": {
+            "id": 1,
+            "no": "sa",
+            "name": "超级管理员",
+            "password": "123",
+            "age": 18,
+            "sex": 1,
+            "phone": "111",
+            "roleId": 0,
+            "isvalid": "Y"
+        }
+    }
+}
+</code></pre></table>
+<h5>成功返回示例的参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">menu</td>
+<td style="text-align: left;">array</td>
+<td>菜单信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.id</td>
+<td style="text-align: left;">int</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menucode</td>
+<td style="text-align: left;">string</td>
+<td>菜单编码</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menuname</td>
+<td style="text-align: left;">string</td>
+<td>菜单名字</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menulevel</td>
+<td style="text-align: left;">string</td>
+<td>菜单级别</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menuparentcode</td>
+<td style="text-align: left;">object</td>
+<td>菜单的父code</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menuclick</td>
+<td style="text-align: left;">string</td>
+<td>点击触发的函数</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menuright</td>
+<td style="text-align: left;">string</td>
+<td>权限 0超级管理员，1表示管理员，2表示普通用户，可以用逗号组合使用</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menucomponent</td>
+<td style="text-align: left;">string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">menu.menuicon</td>
+<td style="text-align: left;">string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div><h2>1.8、查询用户信息</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>根据名字、性别、权限查询用户信息</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/user/listPageC1</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "pageSize": 10,
+    "pageNum": 1,
+    "param": {
+        "name": "",
+        "sex": "1",
+        "roleId": "0"
+    }
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">pageSize</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>每面的信息条数（默认20）</td>
+</tr>
+<tr>
+<td style="text-align: left;">pageNum</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>当前页码（默认1）</td>
+</tr>
+<tr>
+<td style="text-align: left;">param</td>
+<td style="text-align: left;">是</td>
+<td>object</td>
+<td>用户信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">param.name</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>查询的名字</td>
+</tr>
+<tr>
+<td style="text-align: left;">param.sex</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>查询的性别</td>
+</tr>
+<tr>
+<td style="text-align: left;">param.roleId</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>查询的权限</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 1,
+    "data": [
+        {
+            "id": 1,
+            "no": "sa",
+            "name": "超级管理员",
+            "password": "123",
+            "age": 18,
+            "sex": 1,
+            "phone": "111",
+            "roleId": 0,
+            "isvalid": "Y"
+        }
+    ]
+}
+</code></pre></table></div></div><h1>2、目录界面</h1><div style="margin-left:0px;"><h2>2.1、查询权限能看到的界面</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/menu/list</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>请求Query参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">roleId</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": [
+        {
+            "id": 1,
+            "menucode": "001",
+            "menuname": "管理员管理",
+            "menulevel": "1",
+            "menuparentcode": null,
+            "menuclick": "Admin",
+            "menuright": "0",
+            "menucomponent": "admin\/AdminManage.vue",
+            "menuicon": "el-icon-s-custom"
+        },
+        {
+            "id": 2,
+            "menucode": "002",
+            "menuname": "用户管理",
+            "menulevel": "1",
+            "menuparentcode": null,
+            "menuclick": "User",
+            "menuright": "0,1",
+            "menucomponent": "user\/UserManage.vue",
+            "menuicon": "el-icon-user-solid"
+        }
+    ]
+}
+</code></pre></table></div></div><h1>3、材料</h1><div style="margin-left:0px;"><h2>3.1、新增材料</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/project/save</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "id": 1,
+    "material": "aaaa"
+}
+</code></pre></table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": null
+}
+</code></pre></table></div><h2>3.2、删除材料</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>指定Pid，删除对应材料</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/project/del</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>请求Query参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Pid</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": null
+}
+</code></pre></table></div><h2>3.3、根据Pid修改数据</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/project/update</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "pid": 4,
+    "material": "test"
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">pid</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 0,
+    "data": null
+}
+</code></pre></table></div><h2>3.4、根据Pid查找材料</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://localhost:8090/project/listPageC1</code> </li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "pageSize": 10,
+    "pageNum": 1,
+    "param": {
+        "pid": "4"
+    }
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">pid</td>
+<td style="text-align: left;">否</td>
+<td>string</td>
+<td>若不填则返回全部</td>
+</tr>
+</tbody>
+</table>
+<h5>成功返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+    "code": 200,
+    "msg": "成功",
+    "total": 1,
+    "data": [
+        {
+            "id": 16666,
+            "pid": 4,
+            "material": "test",
+            "state": 1,
+            "money": 2
+        }
+    ]
+}
+</code></pre></table></div></div></body></html>

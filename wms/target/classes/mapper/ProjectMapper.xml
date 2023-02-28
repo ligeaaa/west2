@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wms.mapper.ProjectMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wms.entity.Project">
+        <id column="Pid" property="pid" />
+        <result column="id" property="id" />
+        <result column="material" property="material" />
+        <result column="state" property="state" />
+        <result column="money" property="money" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, Pid, material, state, money
+    </sql>
+
+    <select id="pageC" resultType="com.wms.entity.Project">
+        select * from project
+    </select>
+
+    <select id="pageCC" resultType="com.wms.entity.Project">
+        select * from project ${ew.customSqlSegment}
+    </select>
+
+</mapper>
